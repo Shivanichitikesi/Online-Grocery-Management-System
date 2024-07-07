@@ -1,0 +1,108 @@
+/* Reset default margin and padding */
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global styles for links */
+a {
+    color: #007bff; /* Blue link color */
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition for color and background changes */
+}
+
+a:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: #f8f9fa; /* Light grey background */
+    border-bottom: 1px solid #ddd; /* Light border bottom */
+}
+
+.navbar-brand {
+    color: #007bff; /* Blue color for brand */
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: #333; /* Dark grey color for links */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Card styles */
+.card {
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-img-top {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #f8f9fa; /* Light grey background */
+    border-top: 1px solid #ddd; /* Light border top */
+    padding: 1rem 0;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f8f9fa;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.alert-dismissible .close {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    z-index: 2;
+    padding: 1.25rem 1rem;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    color: #495057;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+}
+
+.dropdown-toggle::after {
+    margin-left: 0.5rem;
+}
+
+/* Remove focus outline and box shadow */
+.navbar .dropdown-toggle:focus,
+.navbar .dropdown-item:focus,
+.navbar .form-control:focus {
+    outline: none;
+    box-shadow: none;
+}

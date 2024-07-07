@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Categories{% endblock %}
+{% block body %}
+<div class="container">
+    <h1 class="mt-4 mb-4">Categories</h1>
+    <div class="row">
+        {% for category in categories %}
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100">
+                {% if category.image %}
+                <img src="{{ url_for('static', filename='uploads/images/' + category.image) }}"
+                    alt="{{ category.name }} Image" class="card-img-top">
+                {% else %}
+                <div class="card-img-top text-center py-5">
+                    <p>No image available</p>
+                </div>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{{ url_for('category', category_id=category.id) }}" class="text-decoration-none">
+                            {{ category.name }}
+                        </a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}

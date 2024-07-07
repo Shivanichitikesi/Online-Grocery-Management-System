@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}User Profile{% endblock %}
+{% block  body %}
+    <h1>Welcome, {{ username }}</h1>
+    <p>Below are your profile details:</p>
+    <ul>
+        <li><strong>Username:</strong> {{ username }}</li>
+        <li><strong>Email:</strong> {{ email }}</li>
+        <li><strong>Role:</strong> {{ role }}</li>
+    </ul>
+    <div class="col-lg-6">
+        <h2>Options</h2>
+        <ul>
+            <a href="{{ url_for('view_cart') }}" class="btn btn-info mx-2">View Cart</a>
+            <a href="{{ url_for('checkout') }}" class="btn btn-info mx-2">Checkout</a>
+            <a href="{{ url_for('view_orders') }}" class="btn btn-info mx-2">Orders</a>
+        </ul>
+    </div>
+    {% if role == 'admin' %}
+    <div class="mx-4 my-5">
+        <a href="{{ url_for('admin_dashboard') }}" class="btn btn-primary">Admin Dashboard</a>
+    </div>
+    {% endif %}
+{% endblock body%}
+

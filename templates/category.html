@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Category: {{ category.name }}{% endblock %}
+{% block body %}
+<div class="container my-4">
+    <h1>{{ category.name }}</h1>
+    <div class="row">
+        {% for product in products %}
+        <div class="col-lg-4 mb-4">
+            <div class="card">
+                <a href="{{ url_for('get_product', product_id=product.id) }}" class="text-decoration-none">
+                    <img src="{{ url_for('static', filename='uploads/images/' + product.image) }}"
+                        alt="{{ product.name }}" class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{{ url_for('get_product', product_id=product.id) }}"class="text-dark">{{ product.name }}</a></h5>
+                    <p class="card-text">₹{{ product.price }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}

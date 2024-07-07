@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Your Orders{% endblock %}
+{% block body %}
+<div class="container">
+    <h1>Your Orders</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Date Ordered</th>
+                <th>Status</th>
+                <th>Total Amount</th>
+                <th>Items Sold</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.date.strftime('%Y-%m-%d') }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.total_amount }}</td>
+                <td>
+                    <ul>
+                        {% for item in order.items %}
+                        <li>{{ item.product.name }} - Quantity: {{ item.quantity }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>
+                    {% if order.status not in ['completed', 'cancelled'] %}
+                    <form action="{{ url_for('cancel_order', order_id=order.id) }}" method="post"
+                        style="display:inline;">
+                        {{ form.hidden_tag() }}
+                        <button type="submit" class="btn btn-danger btn-sm">Cancel Order</button>
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('home') }}" class="btn btn-primary">Go Back</a>
+</div>
+{% endblock %}

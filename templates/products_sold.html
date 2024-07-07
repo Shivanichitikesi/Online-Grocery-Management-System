@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Products Sold{% endblock %}
+{% block body %}
+    <h1>Products Sold</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Total Quantity Sold</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product, total_quantity in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ total_quantity }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-primary">Go Back</a>
+{% endblock %}

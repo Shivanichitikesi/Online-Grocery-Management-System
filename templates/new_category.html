@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}New Category{% endblock %}
+{% block body %}
+<div class="container my-4">
+    <h1 class="mb-4">Create New Category</h1>
+    <form method="post" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control", size=32) }}
+            {% for error in form.name.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.file.label(class="form-label") }}
+            {{ form.file(class="form-control-file") }}
+            {% for error in form.file.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">Create Category</button>
+    </form>
+</div>
+{% endblock body %}
